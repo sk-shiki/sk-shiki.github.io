@@ -1,0 +1,979 @@
+@charset "UTF-8";
+html {
+  font-family: 游ゴシック;
+  color: #222;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  /* チェックボックスは非表示に */
+  /* ハンバーガーアイコンの設置スペース */
+  /* ハンバーガーメニューのアイコン */
+  /* 三本線のうち一番上の棒の位置調整 */
+  /* 三本線のうち一番下の棒の位置調整 */
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    height: 75px;
+  }
+}
+
+header .imageLogo {
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  header .imageLogo {
+    margin-top: 25px;
+    margin-left: 25px;
+  }
+}
+
+header .drawer-hidden {
+  display: none;
+}
+
+header .drawer-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  width: 100px;
+  top: 0;
+  right: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 100;
+  /* 重なり順を一番上に */
+  cursor: pointer;
+  background-color: #FF2A2A;
+}
+
+@media screen and (max-width: 900px) {
+  header .drawer-open {
+    height: 75px;
+    width: 75px;
+  }
+}
+
+header .drawer-open span,
+header .drawer-open span:before,
+header .drawer-open span:after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 50px;
+  background: #FFFFFF;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+}
+
+header .drawer-open span:before {
+  bottom: 15px;
+}
+
+header .drawer-open span:after {
+  top: 15px;
+}
+
+header #drawer-check:checked ~ .drawer-open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+header #drawer-check:checked ~ .drawer-open span::before {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+header #drawer-check:checked ~ .drawer-open span::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/* メニューのデザイン*/
+.drawer-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  /* メニューを画面の外に飛ばす */
+  z-index: 49;
+  background: #FF2A2A;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.drawer-list {
+  list-style-type: none;
+  width: 100%;
+  height: auto;
+  padding: .5em 1em;
+  text-align: center;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.drawer-list a {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.drawer-list .lineBox {
+  margin-top: 55px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.drawer-list .lineBox .borderBox {
+  margin: 40px auto;
+  width: 250px;
+  padding: 15px 47px;
+  border: 1px solid white;
+  position: relative;
+}
+
+.drawer-list .lineBox .borderBox::after {
+  background: none;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.drawer-list .drawer-item {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content {
+  left: 0;
+  /* メニューを画面に入れる */
+}
+
+main #mainVisual {
+  width: 100%;
+  height: 720px;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual {
+    padding-top: 15px;
+    height: 469px;
+    margin-bottom: 60px;
+  }
+}
+
+main #mainVisual .school {
+  height: 230px;
+  width: 479px;
+  position: absolute;
+  top: 380px;
+  left: 10%;
+  z-index: 20;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual .school {
+    height: 160px;
+    width: 343px;
+    position: absolute;
+    top: 380px;
+    left: 5%;
+    z-index: 20;
+    margin: 0;
+  }
+}
+
+main #mainVisual .school p {
+  font-weight: bold;
+  font-size: 46px;
+  text-shadow: +1px +3px 3px #FFFFFF;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual .school p {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+
+main #mainVisual .school .btn-square {
+  position: relative;
+  width: 479px;
+  font-size: 24px;
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1em;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background: #FF0033;
+  border: none;
+  border-bottom: solid 6px #7A051C;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual .school .btn-square {
+    width: 290px;
+  }
+}
+
+main #mainVisual .school .btn-square span:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-top: solid 3px #fff;
+  border-right: solid 3px #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  left: 430px;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual .school .btn-square span:after {
+    top: 20px;
+    left: 295px;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+
+main #mainVisual .school .btn-square:hover {
+  /*カーソルを乗せた時*/
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+  cursor: pointer;
+}
+
+main #mainVisual .slider_fade {
+  position: relative;
+  width: 75%;
+  height: 720px;
+  margin-left: 25%;
+  padding: 0;
+}
+
+@media screen and (max-width: 900px) {
+  main #mainVisual .slider_fade {
+    width: 100%;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+main #mainVisual .slider_fade ::before {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-box-shadow: inset 0 0 25px 25px white;
+          box-shadow: inset 0 0 25px 25px white;
+}
+
+main #mainVisual .slider_fade li {
+  width: 100%;
+  height: 100%;
+}
+
+main #mainVisual .slider_fade li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main #mainVisual .slider_fade > li {
+  position: absolute;
+  list-style: none;
+  visibility: hidden;
+  -webkit-animation: anime_slider_fade 12s 0s infinite;
+          animation: anime_slider_fade 12s 0s infinite;
+}
+
+main #mainVisual .slider_fade > li:nth-of-type(2) {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+main #mainVisual .slider_fade > li:nth-of-type(3) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+}
+
+@-webkit-keyframes anime_slider_fade {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+  }
+  48.3% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anime_slider_fade {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+  }
+  48.3% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+main #reason {
+  width: 100%;
+  height: 740px;
+  margin-bottom: 200px;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason {
+    height: 454px;
+    margin-bottom: 129px;
+  }
+}
+
+main #reason .reasonPoint {
+  height: 600px;
+  width: 100%;
+  padding-top: 40px;
+  background: #FF2A2A;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reasonPoint {
+    height: 358px;
+  }
+}
+
+main #reason .reason1 {
+  width: 50%;
+  height: 200px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  background: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  opacity: 0;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason1 {
+    width: 95%;
+    height: 119px;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+}
+
+main #reason .reason1 div {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason1 div {
+    padding: 15px;
+  }
+  main #reason .reason1 div img {
+    margin: auto;
+  }
+}
+
+main #reason .reason1 div p {
+  margin: 0 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main #reason .reason1 div .title {
+  width: 213px;
+  height: 36px;
+  color: #FF2A2A;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason1 div .title {
+    font-size: 24px;
+  }
+}
+
+main #reason .reason1 div .letter {
+  font-size: 18px;
+}
+
+main #reason .reason2 {
+  width: 50%;
+  height: 200px;
+  background: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin: 60px 0 0 auto;
+  opacity: 0;
+  -webkit-transform: translate(50%, 0);
+          transform: translate(50%, 0);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason2 {
+    width: 95%;
+    height: 119px;
+  }
+}
+
+main #reason .reason2 div {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason2 div {
+    padding: 15px;
+  }
+  main #reason .reason2 div img {
+    margin: auto;
+  }
+}
+
+main #reason .reason2 div p {
+  margin: 0 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main #reason .reason2 div .title {
+  width: 244px;
+  height: 36px;
+  color: #FF2A2A;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  main #reason .reason2 div .title {
+    font-size: 24px;
+  }
+}
+
+main #reason .reason2 div .letter {
+  font-size: 18px;
+}
+
+main #voice {
+  width: 100%;
+  height: 935px;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice {
+    height: 1420px;
+  }
+}
+
+main #voice .voiceSet {
+  height: 754px;
+  width: 860px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet {
+    height: 1244px;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+main #voice .voiceSet img {
+  width: 120px;
+  height: 120px;
+  background-color: #CCCCCC;
+  border-radius: 100px;
+}
+
+main #voice .voiceSet .name {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+main #voice .voiceSet .balloon {
+  width: 474px;
+  height: 102px;
+  background: #E9F1FB;
+  position: relative;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 25px;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .balloon {
+    margin: 0 auto;
+    width: 298px;
+    height: 156px;
+  }
+}
+
+main #voice .voiceSet .voice1, main #voice .voiceSet .voice3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 162px;
+  margin: 0;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .voice1, main #voice .voiceSet .voice3 {
+    height: 388px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+main #voice .voiceSet .voice1 div {
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .voice1 div {
+    text-align: center;
+  }
+}
+
+main #voice .voiceSet .voice3 div {
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .voice3 div {
+    text-align: center;
+  }
+}
+
+main #voice .voiceSet .voice2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  height: 162px;
+  margin: 0;
+  margin-left: 200px;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .voice2 {
+    height: 388px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin: 0;
+  }
+}
+
+main #voice .voiceSet .voice2 div {
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  main #voice .voiceSet .voice2 div {
+    text-align: center;
+  }
+}
+
+main #summary {
+  height: 897px;
+  width: 100%;
+  background-color: #E8E8E8;
+  background-image: url("../img/bg.gif");
+  -webkit-animation: bgiLoop 10s linear infinite;
+          animation: bgiLoop 10s linear infinite;
+}
+
+@media screen and (max-width: 900px) {
+  main #summary {
+    height: 1240px;
+    width: 100%;
+  }
+}
+
+main #summary h1 {
+  padding-top: 60px;
+}
+
+main #summary .viewSet {
+  width: 860px;
+  height: 601px;
+  margin: 0 auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+  main #summary .viewSet {
+    width: 343px;
+    height: 1026px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+main #summary .viewSet div {
+  background: #FFFFFF;
+  width: 410px;
+  height: 283px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  main #summary .viewSet div {
+    width: 343px;
+    height: 232px;
+  }
+}
+
+main #summary .viewSet h2 {
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  main #summary .viewSet h2 {
+    font-size: 24px;
+    height: 31px;
+  }
+}
+
+main #summary .viewSet h3 {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  main #summary .viewSet h3 {
+    font-size: 16px;
+    height: 21px;
+  }
+}
+
+main #summary .viewSet p {
+  font-size: 16px;
+  margin: 30px auto;
+  width: 280px;
+  height: 75px;
+  text-align: left;
+}
+
+main #Apply {
+  height: 416px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  main #Apply {
+    height: 382px;
+    width: 100%;
+  }
+}
+
+main #Apply h1 {
+  font-size: 32px;
+  margin: 0;
+  padding-top: 120px;
+}
+
+@media screen and (max-width: 900px) {
+  main #Apply h1 {
+    padding-top: 80px;
+    font-size: 24px;
+  }
+}
+
+main #Apply p {
+  font-size: 18px;
+  margin: 0 0 40px 0;
+}
+
+@media screen and (max-width: 900px) {
+  main #Apply p {
+    font-size: 16px;
+  }
+}
+
+main #Apply button {
+  width: 860px;
+  height: 58px;
+  background-color: #FF2A2A;
+  color: white;
+  font-size: 28px;
+  border-radius: 20px;
+  border: none;
+}
+
+@media screen and (max-width: 900px) {
+  main #Apply button {
+    width: 91%;
+    font-size: 24px;
+  }
+}
+
+main #Apply button:hover {
+  color: #FF2A2A;
+  background-color: #fff;
+  border: solid 2px red;
+}
+
+main .fadein {
+  opacity: 1 !important;
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
+}
+
+main .zoomIn {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+}
+
+@-webkit-keyframes bgiLoop {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -700px 700px;
+  }
+}
+
+@keyframes bgiLoop {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -700px 700px;
+  }
+}
+
+.border {
+  text-decoration: underline;
+  text-underline-offset: 30px;
+}
+
+.container {
+  font-size: 36px;
+  margin: 120px auto;
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    font-size: 28px;
+    margin: 0px auto 60px auto;
+    width: 281px;
+  }
+}
+
+*, :after, :before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+footer {
+  background-color: #e8e8e8;
+  padding: 60px 0 20px 0;
+}
+
+footer section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 60px;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  footer section {
+    padding: 16px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+footer p {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  footer p {
+    font-size: 15px;
+  }
+}
+
+footer ul {
+  margin: 0;
+  padding: 0px 0px 0px 10px;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 900px) {
+  footer ul {
+    padding: 0px 63px 20px 15px;
+  }
+}
+
+footer li {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 900px) {
+  footer li {
+    font-size: 12px;
+  }
+}
+
+footer h1 {
+  font-size: 10px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+/*# sourceMappingURL=main.css.map */
